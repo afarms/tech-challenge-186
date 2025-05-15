@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fiap.grupo186</groupId>
-    <artifactId>tech-challenger</artifactId>
+    <artifactId>tech-challenge</artifactId>
     <name>TechChallenger</name>
     <version>1.0-SNAPSHOT</version>
     <description>Este projeto é parte de um Tech Challenge acadêmico</description>
