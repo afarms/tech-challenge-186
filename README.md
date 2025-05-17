@@ -1,10 +1,13 @@
+![Java](https://img.shields.io/badge/Java-21-blue?logo=java)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue?logo=docker)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)
+
 # Tech Challenge - Sistema de Autoatendimento de Lanchonete - Grupo 186
 
 ## ✏️ Descrição
 
-Este projeto é parte de um **Tech Challenge acadêmico**, cujo objetivo é construir um sistema backend para uma lanchonete em expansão, visando resolver problemas relacionados à gestão de pedidos, atendimento ao cliente e controle de produtos.
+Sistema backend desenvolvido como parte de um **Tech Challenge acadêmico**, com foco em resolver problemas de gestão de pedidos, atendimento e controle de produtos para uma lanchonete em expansão.
 
-A aplicação será desenvolvida em **Java 21**, utilizando **arquitetura hexagonal**, com **banco de dados PostgreSQL** e containerização via Docker.
 
 ## 📌 Objetivo
 
@@ -16,20 +19,33 @@ Criar um sistema backend de autoatendimento de fast food, permitindo:
 - Visualização de pedidos em tempo real pela cozinha e pelos clientes
 
 ## 🛠️ Estrutura do Projeto
+Este projeto segue a **Arquitetura Hexagonal** (Ports and Adapters), inspirada nos princípios descritos no blog técnico da Netflix: _“[Ready for changes with Hexagonal Architecture](https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749)”._
 
-- **Java 21**
-- **Arquitetura Hexagonal**
-- **Banco de dados PostgreSQL**
-- **Docker + Docker Compose**
+Os principais contextos do domínio são:
+* **Payment:** Contexto responsável pela realização e confirmação de pagamento, também responsável pela integração com parceiros.
+* **Kitchen:** Contexto responsável pela criação e atualização de um pedido durante seu preparo e entrega.
+* **Identification:** Contexto responsável pela identificação e cadastro do pedido.
+* **Sales:** Contexto responsável pela criação e seleção dos produtos contidos no pedido.
+* **Campaigns:** Contexto  responsável pela criação de campanhas da lanchonete.
 
+![arquitetura_hexagonal_tech_challenge.PNG](arquitetura_hexagonal_tech_challenge.PNG)
 ## 📝 Requisitos
 
 - Java 21
 - Docker
 - Docker Compose
 
-## ⚙️ Como executar localmente
-
-1. Compile o projeto:
-   ```bash
-   working in progess...
+## ⚙️ Como executar o projeto localmente
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo
+```
+2. Compile o projeto (geração do JAR):
+```bash
+mvn clean package
+```
+3. Subir container
+```bash
+docker-compose up
+```
