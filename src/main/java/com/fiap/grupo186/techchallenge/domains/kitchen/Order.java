@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 import java.util.UUID;
 
 public class Order {
@@ -55,4 +55,43 @@ public class Order {
         this.completedAt = LocalDateTime.now();
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public TypeCombo getCombo() {
+        return combo;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getCompletedAt() {
+        return completedAt;
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+    @Override
+    public String toString() {
+        return "Order{" +
+            "id=" + id +
+            ", price=" + price +
+            ", status=" + status +
+            ", combo=" + combo +
+            ", createdAt=" + createdAt +
+            ", completedAt=" + completedAt +
+            ", itemList=" + itemList +
+            "} ";
+    }
 }

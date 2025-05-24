@@ -27,4 +27,12 @@ public class ControllerExceptionsHandler {
         pd.setDetail(errors);
         return ResponseEntity.badRequest().body(pd);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ProblemDetail> handleIllegalArgumentException(IllegalArgumentException ex) {
+        ProblemDetail pd = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+        pd.setDetail(ex.getMessage());
+        return ResponseEntity.badRequest().body(pd);
+    }
+
 }

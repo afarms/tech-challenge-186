@@ -1,5 +1,6 @@
 package com.fiap.grupo186.techchallenge.domains.kitchen;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fiap.grupo186.techchallenge.domains.kitchen.Item.Product.ProductCategory;
 
 import java.math.BigDecimal;
@@ -8,6 +9,7 @@ import java.util.UUID;
 
 public class Item {
     private final UUID id;
+    @JsonIgnore
     private Order order;
     private Product product;
     private final Integer quantity;
@@ -52,11 +54,74 @@ public class Item {
         this.productIsAvailable = productIsAvailable;
     }
 
-    public Integer getQuantity() {
-        return this.quantity;
+    public UUID getId() {
+        return id;
     }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public ProductCategory getCategory() {
+        return category;
+    }
+
     public BigDecimal getUnitPrice() {
-        return this.unitPrice;
+        return unitPrice;
+    }
+
+    public String getCustomerNote() {
+        return customerNote;
+    }
+
+    public UUID getProductId() {
+        return productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public BigDecimal getProductPrice() {
+        return productPrice;
+    }
+
+    public LocalDateTime getProductCreatedAt() {
+        return productCreatedAt;
+    }
+
+    public boolean isProductIsAvailable() {
+        return productIsAvailable;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+            "id=" + id +
+            ", product=" + product +
+            ", quantity=" + quantity +
+            ", category=" + category +
+            ", unitPrice=" + unitPrice +
+            ", customerNote='" + customerNote + '\'' +
+            ", productId=" + productId +
+            ", productName='" + productName + '\'' +
+            ", productDescription='" + productDescription + '\'' +
+            ", productPrice=" + productPrice +
+            ", productCreatedAt=" + productCreatedAt +
+            ", productIsAvailable=" + productIsAvailable +
+            '}';
     }
 
     //TODO: Maybe need move Product class to another domain
