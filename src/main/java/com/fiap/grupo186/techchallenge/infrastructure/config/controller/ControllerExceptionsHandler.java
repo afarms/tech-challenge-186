@@ -34,4 +34,5 @@ public class ControllerExceptionsHandler {
         pd.setDetail(ex.getMessage());
         return ResponseEntity.badRequest().body(pd);
     }
+
 }

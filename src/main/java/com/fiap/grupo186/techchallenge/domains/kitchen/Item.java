@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public class Item {
     private final UUID id;
-
     @JsonIgnore
     private Order order;
     private Product product;
