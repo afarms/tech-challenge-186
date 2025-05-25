@@ -4,7 +4,7 @@ import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 public class KitchenService {
     public KitchenService(){
     }
-    public void validarRegrasNegocio(Order order) {
+    public void totalPriceIsCorrect(Order order) {
         if(!order.totalPriceValidation()){
             throw new IllegalArgumentException("Order total price is invalid!");
         }

@@ -20,8 +20,8 @@ public class CreateOrderUseCase {
     public Order execute(PreOrderDTO dto) {
         Order order = dto.makeOrderWithItems();
 
-        domainService.validarRegrasNegocio(order);
-
+        domainService.totalPriceIsCorrect(order);
+        // Once the order has been validated, the customer must make the payment.
         return repository.save(order);
     }
 }
