@@ -1,16 +1,15 @@
 package com.fiap.grupo186.techchallenge.infrastructure.config;
 
-import com.fiap.grupo186.techchallenge.domains.kitchen.adapters.services.KitchenService;
-import com.fiap.grupo186.techchallenge.domains.kitchen.ports.interfaces.OrderServicePort;
-import com.fiap.grupo186.techchallenge.domains.kitchen.ports.repositories.OrderRepositoryPort;
+import com.fiap.grupo186.techchallenge.domains.kitchen.services.KitchenService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanConfiguration {
 
+    // Domain service unused Spring Bean
     @Bean
-    OrderServicePort orderService(OrderRepositoryPort orderRepositoryPort){
-        return new KitchenService(orderRepositoryPort);
+    public KitchenService KitchenService() {
+        return new KitchenService();
     }
 }

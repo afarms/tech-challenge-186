@@ -1,4 +1,4 @@
-package com.fiap.grupo186.techchallenge.domains.kitchen;
+package com.fiap.grupo186.techchallenge.domains.kitchen.models;
 
 public enum TypeCombo {
     SINGLE,

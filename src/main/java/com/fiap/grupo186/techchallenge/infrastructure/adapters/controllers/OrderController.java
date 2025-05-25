@@ -1,8 +1,8 @@
-package com.fiap.grupo186.techchallenge.application.adapters.controllers;
+package com.fiap.grupo186.techchallenge.infrastructure.adapters.controllers;
 
-import com.fiap.grupo186.techchallenge.domains.kitchen.Order;
-import com.fiap.grupo186.techchallenge.domains.kitchen.dtos.PreOrderDTO;
-import com.fiap.grupo186.techchallenge.domains.kitchen.ports.interfaces.OrderServicePort;
+import com.fiap.grupo186.techchallenge.application.usecases.CreateOrderUseCase;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
+import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -18,10 +18,10 @@ import static org.springframework.http.ResponseEntity.status;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
-    private final OrderServicePort orderServicePort;
+    private final CreateOrderUseCase createOrderUserCase;
 
-    public OrderController(OrderServicePort orderServicePort) {
-        this.orderServicePort = orderServicePort;
+    public OrderController(CreateOrderUseCase createOrderUserCase) {
+        this.createOrderUserCase = createOrderUserCase;
     }
 
     @PostMapping
@@ -31,7 +31,7 @@ public class OrderController {
             @ApiResponse(responseCode = "400", description = "Invalid input data in request body")
     })
     public ResponseEntity<Order> createOrder(@RequestBody PreOrderDTO preOrder){
-        var order = orderServicePort.create(preOrder);
+        var order = createOrderUserCase.execute(preOrder);
         return status(CREATED).body(order);
     }
 
