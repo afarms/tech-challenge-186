@@ -2,6 +2,7 @@ package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.repo
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.application.ports.OrderRepositoryPort;
+import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.mappers.OrderMapper;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -9,7 +10,9 @@ public class OrderRepository implements OrderRepositoryPort {
     @Override
     public Order save(Order order) {
         System.out.println("Saving order: " + order);
-        //TODO: Add persistence logic and details
+        var orderEntity = OrderMapper.toEntity(order);
+
+        //TODO: Add persistence method and details
         return order;
     }
 }
