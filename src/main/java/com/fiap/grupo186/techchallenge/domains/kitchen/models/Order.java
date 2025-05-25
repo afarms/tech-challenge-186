@@ -1,6 +1,6 @@
-package com.fiap.grupo186.techchallenge.domains.kitchen;
+package com.fiap.grupo186.techchallenge.domains.kitchen.models;
 
-import com.fiap.grupo186.techchallenge.domains.kitchen.dtos.PreOrderDTO;
+import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -93,5 +93,13 @@ public class Order {
             ", completedAt=" + completedAt +
             ", itemList=" + itemList +
             "} ";
+    }
+
+    public boolean totalPriceValidation() {
+        var totalPrice = this.itemList.stream()
+                .map(item -> item.getUnitPrice()
+                    .multiply(BigDecimal.valueOf(item.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        return totalPrice.compareTo(this.price) == 0;
     }
 }

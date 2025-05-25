@@ -1,8 +1,8 @@
-package com.fiap.grupo186.techchallenge.domains.kitchen.dtos;
+package com.fiap.grupo186.techchallenge.application.dtos;
 
-import com.fiap.grupo186.techchallenge.domains.kitchen.Item;
-import com.fiap.grupo186.techchallenge.domains.kitchen.Order;
-import com.fiap.grupo186.techchallenge.domains.kitchen.TypeCombo;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.Item;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.TypeCombo;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -23,13 +23,6 @@ public record PreOrderDTO(
     List<ItemDTO> itemList
 
 ) {
-    public boolean totalPriceValidation() {
-        var totalPrice = this.itemList.stream()
-                .map(item -> item.unitPrice().multiply(BigDecimal.valueOf(item.quantity())))
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return totalPrice.compareTo(this.price) == 0;
-    }
-
     public Order makeOrderWithItems() {
         var order = new Order(
             this.combo,

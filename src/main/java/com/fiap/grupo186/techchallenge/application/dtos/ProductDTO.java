@@ -1,6 +1,6 @@
-package com.fiap.grupo186.techchallenge.domains.kitchen.dtos;
+package com.fiap.grupo186.techchallenge.application.dtos;
 
-import com.fiap.grupo186.techchallenge.domains.kitchen.Item.Product.ProductCategory;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.Item.Product.ProductCategory;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
-package com.fiap.grupo186.techchallenge.domains.kitchen.dtos;
+package com.fiap.grupo186.techchallenge.application.dtos;
 
-import com.fiap.grupo186.techchallenge.domains.kitchen.Item;
-import com.fiap.grupo186.techchallenge.domains.kitchen.Item.Product.ProductCategory;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.Item;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.Item.Product.ProductCategory;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

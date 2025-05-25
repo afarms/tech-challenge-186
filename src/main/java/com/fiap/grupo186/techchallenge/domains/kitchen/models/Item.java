@@ -1,7 +1,7 @@
-package com.fiap.grupo186.techchallenge.domains.kitchen;
+package com.fiap.grupo186.techchallenge.domains.kitchen.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fiap.grupo186.techchallenge.domains.kitchen.Item.Product.ProductCategory;
+import com.fiap.grupo186.techchallenge.domains.kitchen.models.Item.Product.ProductCategory;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
