@@ -1,8 +1,8 @@
 package com.fiap.grupo186.techchallenge.infrastructure.adapters.controllers;
 
 import com.fiap.grupo186.techchallenge.application.dtos.UpdateStatusDTO;
-import com.fiap.grupo186.techchallenge.application.ports.CreatOrderPort;
-import com.fiap.grupo186.techchallenge.application.ports.UpdateStatusOrderPort;
+import com.fiap.grupo186.techchallenge.application.ports.CreatOrderUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.UpdateStatusOrderUseCase;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,15 +25,15 @@ import static org.springframework.http.ResponseEntity.status;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
-    private final CreatOrderPort creatOrderPort;
-    private final UpdateStatusOrderPort updateStatusOrderPort;
+    private final CreatOrderUseCase creatOrderUseCase;
+    private final UpdateStatusOrderUseCase updateStatusOrderUseCase;
 
     public OrderController(
-        CreatOrderPort creatOrderPort,
-        UpdateStatusOrderPort updateStatusOrderPort
+        CreatOrderUseCase creatOrderUseCase,
+        UpdateStatusOrderUseCase updateStatusOrderUseCase
     ) {
-        this.creatOrderPort = creatOrderPort;
-        this.updateStatusOrderPort = updateStatusOrderPort;
+        this.creatOrderUseCase = creatOrderUseCase;
+        this.updateStatusOrderUseCase = updateStatusOrderUseCase;
     }
 
     @PostMapping
@@ -43,7 +43,7 @@ public class OrderController {
             @ApiResponse(responseCode = "400", description = "Invalid input data in request body")
     })
     public ResponseEntity<Order> createOrder(@RequestBody @Valid PreOrderDTO preOrder){
-        var order = creatOrderPort.execute(preOrder);
+        var order = creatOrderUseCase.execute(preOrder);
         return status(CREATED).body(order);
     }
 
@@ -57,7 +57,7 @@ public class OrderController {
         @PathVariable UUID id,
         @RequestBody @Valid UpdateStatusDTO dto) {
 
-        updateStatusOrderPort.execute(id, dto.status());
+        updateStatusOrderUseCase.execute(id, dto.status());
 
         return ResponseEntity.noContent().build();
     }
