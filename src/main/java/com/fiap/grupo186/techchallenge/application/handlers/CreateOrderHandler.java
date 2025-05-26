@@ -1,6 +1,6 @@
-package com.fiap.grupo186.techchallenge.application.usecases;
+package com.fiap.grupo186.techchallenge.application.handlers;
 
-import com.fiap.grupo186.techchallenge.application.ports.CreatOrderPort;
+import com.fiap.grupo186.techchallenge.application.ports.CreatOrderUseCase;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.domains.kitchen.services.KitchenService;
 import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
@@ -8,12 +8,12 @@ import com.fiap.grupo186.techchallenge.application.ports.OrderRepositoryPort;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CreateOrderUseCase implements CreatOrderPort {
+public class CreateOrderHandler implements CreatOrderUseCase {
     private final OrderRepositoryPort repository;
 
     private final KitchenService domainService;
 
-    public CreateOrderUseCase(OrderRepositoryPort repository, KitchenService domainService) {
+    public CreateOrderHandler(OrderRepositoryPort repository, KitchenService domainService) {
         this.repository = repository;
         this.domainService = domainService;
     }
