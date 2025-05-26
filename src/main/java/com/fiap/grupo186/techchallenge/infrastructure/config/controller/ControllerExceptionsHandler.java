@@ -1,5 +1,6 @@
 package com.fiap.grupo186.techchallenge.infrastructure.config.controller;
 
+import com.fiap.grupo186.techchallenge.domains.kitchen.services.InvalidStatusException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.time.Instant;
 import java.util.stream.Collectors;
 
 import static java.lang.String.format;
@@ -35,4 +37,14 @@ public class ControllerExceptionsHandler {
         return ResponseEntity.badRequest().body(pd);
     }
 
+    @ExceptionHandler(InvalidStatusException.class)
+    public ResponseEntity<ProblemDetail> handleInvalidStatusException(InvalidStatusException ex) {
+        ProblemDetail pd = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);
+
+        pd.setTitle("Invalid update Status");
+        pd.setDetail(ex.getMessage());
+        pd.setProperty("timestamp", Instant.now());
+
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(pd);
+    }
 }

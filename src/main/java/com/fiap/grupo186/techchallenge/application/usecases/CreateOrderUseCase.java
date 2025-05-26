@@ -19,8 +19,9 @@ public class CreateOrderUseCase {
 
     public Order execute(PreOrderDTO dto) {
         Order order = dto.makeOrderWithItems();
-
-        domainService.totalPriceIsCorrect(order);
+        if (!domainService.isTotalPriceCorrect(order)) {
+            throw new IllegalArgumentException("Order total price is invalid!");
+        }
         // Once the order has been validated, the customer must make the payment.
         return repository.save(order);
     }

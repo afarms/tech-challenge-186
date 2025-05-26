@@ -24,9 +24,6 @@ public class Order {
         this.price = price;
     }
 
-    public void addItem(Item item) {
-        this.itemList.add(item);
-    }
     public void finisherOrder() {
         this.completedAt = LocalDateTime.now();
     }
@@ -43,6 +40,10 @@ public class Order {
         return status;
     }
 
+    public void setStatus(OrderStatus status){
+        this.status = status;
+    }
+
     public TypeCombo getCombo() {
         return combo;
     }
@@ -57,6 +58,10 @@ public class Order {
 
     public List<Item> getItemList() {
         return itemList;
+    }
+
+    public void addItem(Item item) {
+        this.itemList.add(item);
     }
     @Override
     public String toString() {
