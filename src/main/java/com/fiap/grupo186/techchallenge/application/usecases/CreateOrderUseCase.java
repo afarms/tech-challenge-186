@@ -1,5 +1,6 @@
 package com.fiap.grupo186.techchallenge.application.usecases;
 
+import com.fiap.grupo186.techchallenge.application.ports.CreatOrderPort;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.domains.kitchen.services.KitchenService;
 import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
@@ -7,7 +8,7 @@ import com.fiap.grupo186.techchallenge.application.ports.OrderRepositoryPort;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CreateOrderUseCase {
+public class CreateOrderUseCase implements CreatOrderPort {
     private final OrderRepositoryPort repository;
 
     private final KitchenService domainService;
@@ -17,6 +18,7 @@ public class CreateOrderUseCase {
         this.domainService = domainService;
     }
 
+    @Override
     public Order execute(PreOrderDTO dto) {
         Order order = dto.makeOrderWithItems();
         if (!domainService.isTotalPriceCorrect(order)) {
