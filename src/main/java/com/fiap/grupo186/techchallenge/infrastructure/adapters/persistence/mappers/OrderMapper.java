@@ -2,6 +2,7 @@ package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.mapp
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.OrderEntity;
+import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.QueueOrderEntity;
 
 public class OrderMapper {
     public static OrderEntity toEntity(Order order) {
@@ -20,5 +21,13 @@ public class OrderMapper {
         orderEntity.setPaidAt(order.getPaidAt());
 
         return orderEntity;
+    }
+
+    public static QueueOrderEntity toQueue(Order order) {
+        return new QueueOrderEntity(
+            OrderMapper.toEntity(order),
+            order.getStatus(),
+            order.getCombo()
+        );
     }
 }
