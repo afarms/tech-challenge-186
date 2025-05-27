@@ -2,7 +2,7 @@ package com.fiap.grupo186.techchallenge.infrastructure.adapters.controllers;
 
 import com.fiap.grupo186.techchallenge.application.dtos.UpdateStatusDTO;
 import com.fiap.grupo186.techchallenge.application.ports.CreatOrderUseCase;
-import com.fiap.grupo186.techchallenge.application.ports.UpdateStatusOrderUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.ConfirmOrderPaymentUseCase;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,14 +26,14 @@ import static org.springframework.http.ResponseEntity.status;
 @RequestMapping("/orders")
 public class OrderController {
     private final CreatOrderUseCase creatOrderUseCase;
-    private final UpdateStatusOrderUseCase updateStatusOrderUseCase;
+    private final ConfirmOrderPaymentUseCase confirmOrderPaymentUseCase;
 
     public OrderController(
         CreatOrderUseCase creatOrderUseCase,
-        UpdateStatusOrderUseCase updateStatusOrderUseCase
+        ConfirmOrderPaymentUseCase confirmOrderPaymentUseCase
     ) {
         this.creatOrderUseCase = creatOrderUseCase;
-        this.updateStatusOrderUseCase = updateStatusOrderUseCase;
+        this.confirmOrderPaymentUseCase = confirmOrderPaymentUseCase;
     }
 
     @PostMapping
@@ -47,17 +47,15 @@ public class OrderController {
         return status(CREATED).body(order);
     }
 
-    @PatchMapping("/{id}/status")
-    @Operation(summary = "Update the status order", description = "Return 204 if the order status was successfully updated.")
+    @PostMapping("/{id}/confir-payment")
+    @Operation(summary = "Update the status order to payed", description = "Return 204 if the order status was successfully updated.")
     @ApiResponses({
         @ApiResponse(responseCode = "204", description = "Order status updated successfully"),
         @ApiResponse(responseCode = "422", description = "Invalid update status"),
     })
-    public ResponseEntity<Void> updateStatus(
-        @PathVariable UUID id,
-        @RequestBody @Valid UpdateStatusDTO dto) {
+    public ResponseEntity<Void> updateStatus(@PathVariable UUID id) {
 
-        updateStatusOrderUseCase.execute(id, dto.status());
+        confirmOrderPaymentUseCase.execute(id);
 
         return ResponseEntity.noContent().build();
     }

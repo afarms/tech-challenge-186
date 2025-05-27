@@ -17,6 +17,7 @@ public class OrderMapper {
         orderEntity.setCreatedAt(order.getCreatedAt());
         orderEntity.setCompletedAt(order.getCompletedAt());
         orderEntity.setItemList(itemEntityList);
+        orderEntity.setPaidAt(order.getPaidAt());
 
         return orderEntity;
     }

@@ -32,6 +32,8 @@ public class OrderEntity {
     private LocalDateTime createdAt;
     @Column(name = "completed_at")
     private LocalDateTime completedAt;
+    @Column(name = "paid_at")
+    private LocalDateTime paidAt;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemEntity> itemList;
 
@@ -111,5 +113,13 @@ public class OrderEntity {
 
     public void setItemList(List<ItemEntity> itemList) {
         this.itemList = itemList;
+    }
+
+    public LocalDateTime paidAt() {
+        return paidAt;
+    }
+
+    public void setPaidAt(LocalDateTime paidAt) {
+        this.paidAt = paidAt;
     }
 }
