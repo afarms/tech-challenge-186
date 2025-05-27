@@ -2,7 +2,6 @@ package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.repo
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.application.ports.OrderRepositoryPort;
-import com.fiap.grupo186.techchallenge.domains.kitchen.models.OrderStatus;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.TypeCombo;
 import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.mappers.OrderMapper;
 import org.springframework.stereotype.Component;
@@ -14,17 +13,13 @@ import java.util.UUID;
 public class OrderRepository implements OrderRepositoryPort {
     @Override
     public Order save(Order order) {
-        System.out.println("Saving order: " + order);
         var orderEntity = OrderMapper.toEntity(order);
-
         //TODO: Add persistence method and details
         return order;
     }
 
     @Override
     public Order findById(UUID orderId) {
-        System.out.println("Finding order by id: " + orderId);
-
         //TODO: Add persistence method and details
         //  remove this fake Order when persistence is implemented
         return new Order(
