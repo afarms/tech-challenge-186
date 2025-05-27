@@ -1,6 +1,5 @@
 package com.fiap.grupo186.techchallenge.infrastructure.adapters.controllers;
 
-import com.fiap.grupo186.techchallenge.application.dtos.UpdateStatusDTO;
 import com.fiap.grupo186.techchallenge.application.ports.CreatOrderUseCase;
 import com.fiap.grupo186.techchallenge.application.ports.ConfirmOrderPaymentUseCase;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
@@ -10,7 +9,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,9 +52,18 @@ public class OrderController {
         @ApiResponse(responseCode = "422", description = "Invalid update status"),
     })
     public ResponseEntity<Void> updateStatus(@PathVariable UUID id) {
-
         confirmOrderPaymentUseCase.execute(id);
+        return ResponseEntity.noContent().build();
+    }
 
+    @PostMapping("/{id}/send-kitchen")
+    @Operation(summary = "Enqueues the specified order in the kitchen queue for preparation. ", description = "Return 201 if the order was successfully sent to the kitchen.")
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Order queued successfully"),
+        @ApiResponse(responseCode = "404", description = "Order not found"),
+    })
+    public ResponseEntity<Void> sendToKitchen(@PathVariable UUID id) {
+        confirmOrderPaymentUseCase.execute(id);
         return ResponseEntity.noContent().build();
     }
 
