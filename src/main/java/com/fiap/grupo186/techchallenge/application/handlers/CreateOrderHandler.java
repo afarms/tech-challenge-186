@@ -1,10 +1,10 @@
 package com.fiap.grupo186.techchallenge.application.handlers;
 
-import com.fiap.grupo186.techchallenge.application.ports.CreatOrderUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.CreatOrderUseCase;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.domains.kitchen.services.KitchenService;
 import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
-import com.fiap.grupo186.techchallenge.application.ports.OrderRepositoryPort;
+import com.fiap.grupo186.techchallenge.application.ports.out.OrderRepositoryPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
