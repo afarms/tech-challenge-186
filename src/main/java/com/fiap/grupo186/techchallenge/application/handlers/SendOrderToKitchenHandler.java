@@ -1,8 +1,8 @@
 package com.fiap.grupo186.techchallenge.application.handlers;
 
-import com.fiap.grupo186.techchallenge.application.ports.OrderQueueRepositoryPort;
-import com.fiap.grupo186.techchallenge.application.ports.OrderRepositoryPort;
-import com.fiap.grupo186.techchallenge.application.ports.SendOrderToKitchenUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.out.OrderQueueRepositoryPort;
+import com.fiap.grupo186.techchallenge.application.ports.out.OrderRepositoryPort;
+import com.fiap.grupo186.techchallenge.application.ports.in.SendOrderToKitchenUseCase;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.OrderStatus;
 import com.fiap.grupo186.techchallenge.domains.kitchen.services.KitchenService;
 import org.slf4j.Logger;
