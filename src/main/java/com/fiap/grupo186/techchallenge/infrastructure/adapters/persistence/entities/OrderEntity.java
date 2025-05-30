@@ -37,6 +37,12 @@ public class OrderEntity {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemEntity> itemList;
 
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column(name = "customer_id")
+    private UUID customerId;
+
     public OrderEntity(
         UUID id,
         BigDecimal price,
@@ -44,7 +50,10 @@ public class OrderEntity {
         TypeCombo combo,
         LocalDateTime createdAt,
         LocalDateTime completedAt,
-        List<ItemEntity> itemList
+        List<ItemEntity> itemList,
+        LocalDateTime paidAt,
+        String customerName,
+        UUID customerId
     ) {
         this.id = id;
         this.price = price;
@@ -53,6 +62,9 @@ public class OrderEntity {
         this.createdAt = createdAt;
         this.completedAt = completedAt;
         this.itemList = itemList;
+        this.paidAt = paidAt;
+        this.customerName = customerName;
+        this.customerId = customerId;
     }
 
     public OrderEntity() {
@@ -121,5 +133,21 @@ public class OrderEntity {
 
     public void setPaidAt(LocalDateTime paidAt) {
         this.paidAt = paidAt;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public UUID getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(UUID customerId) {
+        this.customerId = customerId;
     }
 }

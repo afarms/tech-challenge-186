@@ -9,6 +9,7 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 public record PreOrderDTO(
     @NotNull(message = "Order type is required")
@@ -18,13 +19,17 @@ public record PreOrderDTO(
     BigDecimal price,
     @NotNull(message = "Item list must not be null")
     @Size(min = 1, message = "Item list must contain at least one item")
-    List<ItemDTO> itemList
+    List<ItemDTO> itemList,
+    String customerName,
+    UUID customerId
 
 ) {
     public Order makeOrderWithItems() {
         var order = new Order(
             this.combo,
-            this.price
+            this.price,
+            this.customerId,
+            this.customerName
         );
         this.itemList.forEach(item -> {
             var itemToAdd = new Item(

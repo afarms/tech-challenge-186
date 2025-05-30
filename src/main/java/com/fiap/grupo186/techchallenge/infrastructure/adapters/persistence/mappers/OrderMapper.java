@@ -19,6 +19,8 @@ public class OrderMapper {
         orderEntity.setCompletedAt(order.getCompletedAt());
         orderEntity.setItemList(itemEntityList);
         orderEntity.setPaidAt(order.getPaidAt());
+        orderEntity.setCustomerName(order.getCustomerName());
+        orderEntity.setCustomerId(order.getCustomerId());
 
         return orderEntity;
     }

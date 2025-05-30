@@ -19,12 +19,21 @@ public class Order {
     private LocalDateTime paidAt = null;
     private List<Item> itemList = new ArrayList<>();
 
-    public Order( TypeCombo combo, BigDecimal price) {
+    private final UUID customerId;
+    private final String customerName;
+
+    public Order(
+        TypeCombo combo,
+        BigDecimal price,
+        UUID customerId,
+        String customerName) {
         this.id = UUID.randomUUID();
         this.status = OrderStatus.PENDING_PAYMENT;
         this.combo = combo;
         this.createdAt = LocalDateTime.now();
         this.price = price;
+        this.customerId = customerId;
+        this.customerName = customerName;
     }
 
     public boolean totalPriceValidation() {
@@ -83,6 +92,14 @@ public class Order {
         this.paidAt = paidAt;
     }
 
+    public UUID getCustomerId() {
+        return customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -94,6 +111,8 @@ public class Order {
             ", completedAt=" + completedAt +
             ", paidAt=" + paidAt +
             ", itemList=" + itemList +
+            ", customerId=" + customerId +
+            ", CustomerName='" + customerName + '\'' +
             '}';
     }
 
