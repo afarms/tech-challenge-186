@@ -2,7 +2,7 @@ package com.fiap.grupo186.techchallenge.application.handlers.sales;
 
 import com.fiap.grupo186.techchallenge.application.ports.out.ComboTypeRepositoryPort;
 import com.fiap.grupo186.techchallenge.application.ports.in.salles.ListComboTypesUseCase;
-import com.fiap.grupo186.techchallenge.domains.sales.models.ComboType;
+import com.fiap.grupo186.techchallenge.domains.sales.ComboType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +18,6 @@ public class ListComboTypesHandler implements ListComboTypesUseCase {
     @Override
     public List<ComboType> execute() {
         var combos = comboTypeRepository.findAllCombosType();
-        return combos;
+        return null;
     }
 }

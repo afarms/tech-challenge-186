@@ -8,7 +8,7 @@ public class Item {
     private final UUID id;
     private final Integer quantity;
     private final BigDecimal unitPrice;
-    private final String customerNote;
+    private String customerNote;
     //Snapshot product data
     private final UUID productId;
     private final String productName;
