@@ -1,11 +1,8 @@
 package com.fiap.grupo186.techchallenge.infrastructure.adapters.controllers;
 
 import com.fiap.grupo186.techchallenge.application.ports.in.salles.ListComboTypesUseCase;
-import com.fiap.grupo186.techchallenge.domains.sales.ComboType;
+import com.fiap.grupo186.techchallenge.domains.sales.models.ComboType;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,13 +22,12 @@ public class ComboController {
 
     @GetMapping("/types")
     @Operation(
-        summary = "Obtém todos os tipos de combo disponíveis",
-        description = "Retorna uma lista completa de todos os tipos de combo cadastrados no sistema.",
-        tags = {"Combo Types"},
+        summary = "Get all combo types available",
+        description = "Returns a list of all available combo types.",
         responses = {
             @ApiResponse(
                 responseCode = "200",
-                description = "Lista de tipos de combo retornada com sucesso."
+                description = "List of combo types retrieved successfully."
             )
         }
     )

@@ -1,7 +1,7 @@
 package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.repositories;
 
 import com.fiap.grupo186.techchallenge.application.ports.out.ComboTypeRepositoryPort;
-import com.fiap.grupo186.techchallenge.domains.sales.ComboType;
+import com.fiap.grupo186.techchallenge.domains.sales.models.ComboType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
