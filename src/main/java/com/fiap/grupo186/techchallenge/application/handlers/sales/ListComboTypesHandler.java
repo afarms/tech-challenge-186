@@ -17,7 +17,6 @@ public class ListComboTypesHandler implements ListComboTypesUseCase {
 
     @Override
     public List<ComboType> execute() {
-        var combos = comboTypeRepository.findAllCombosType();
-        return combos;
+        return comboTypeRepository.findAllCombosType();
     }
 }
