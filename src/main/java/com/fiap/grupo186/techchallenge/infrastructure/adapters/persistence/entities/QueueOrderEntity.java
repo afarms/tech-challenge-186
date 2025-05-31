@@ -1,4 +1,4 @@
-package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen;
+package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities;
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.OrderStatus;
 import jakarta.persistence.Column;

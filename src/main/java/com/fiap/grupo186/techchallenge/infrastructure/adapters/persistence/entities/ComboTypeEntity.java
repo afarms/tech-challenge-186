@@ -1,6 +1,6 @@
-package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.sales;
+package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities;
 
-import com.fiap.grupo186.techchallenge.domains.sales.models.ComboType;
+import com.fiap.grupo186.techchallenge.domains.sales.ComboType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -23,22 +23,11 @@ public class ComboTypeEntity {
 
     @Column(name = "name", length = 255)
     private String name;
-    @Column(name = "image_url", length = 255)
-    private String imageUrl;
     @Column(name = "description", length = 255)
     private String description;
 
-    public ComboTypeEntity(
-        UUID id,
-        ComboType.Type type,
-        String name,
-        String imageUrl,
-        String description
-    ) {
-        this.id = id;
+    public ComboTypeEntity(ComboType.Type type, String description) {
         this.type = type;
-        this.name = name;
-        this.imageUrl = imageUrl;
         this.description = description;
     }
 
@@ -76,13 +65,6 @@ public class ComboTypeEntity {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     @Override
