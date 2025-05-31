@@ -2,7 +2,6 @@ package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.repo
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.application.ports.out.OrderRepositoryPort;
-import com.fiap.grupo186.techchallenge.domains.kitchen.models.TypeCombo;
 import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.mappers.OrderMapper;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +23,7 @@ public class JpaOrderRepository implements OrderRepositoryPort {
         //TODO: Add persistence method and details
         //  remove this fake Order when persistence is implemented
         return new Order(
-            TypeCombo.CUSTOMIZED,
+            "CUSTOMIZED",
             BigDecimal.TEN,
             UUID.randomUUID(),
             "Dummy name"
@@ -37,13 +36,13 @@ public class JpaOrderRepository implements OrderRepositoryPort {
         //  remove this fake OrderList when persistence is implemented
         return List.of(
             new Order(
-                TypeCombo.CUSTOMIZED,
+                "CUSTOMIZED",
                 BigDecimal.TEN,
                 UUID.randomUUID(),
                 "Dummy name"
             ),
             new Order(
-                TypeCombo.CUSTOMIZED,
+                "CUSTOMIZED",
                 BigDecimal.TEN,
                 UUID.randomUUID(),
                 "Dummy name"

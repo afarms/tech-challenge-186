@@ -1,8 +1,8 @@
-package com.fiap.grupo186.techchallenge.application.handlers;
+package com.fiap.grupo186.techchallenge.application.handlers.kitchen;
 
 import com.fiap.grupo186.techchallenge.application.dtos.PaymentOrderDTO;
 import com.fiap.grupo186.techchallenge.application.ports.out.OrderRepositoryPort;
-import com.fiap.grupo186.techchallenge.application.ports.in.ConfirmOrderPaymentUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.ConfirmOrderPaymentUseCase;
 import com.fiap.grupo186.techchallenge.application.ports.out.PaymentRepositoryPort;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.OrderStatus;
 import com.fiap.grupo186.techchallenge.domains.kitchen.services.KitchenService;
@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service

@@ -12,7 +12,7 @@ public class Order {
     private final UUID id;
     private BigDecimal price;
     private OrderStatus status;
-    private TypeCombo combo;
+    private String combo;
     private LocalDateTime createdAt;
     private LocalDateTime completedAt = null;
 
@@ -23,7 +23,7 @@ public class Order {
     private final String customerName;
 
     public Order(
-        TypeCombo combo,
+        String combo,
         BigDecimal price,
         UUID customerId,
         String customerName) {
@@ -64,7 +64,7 @@ public class Order {
         this.status = status;
     }
 
-    public TypeCombo getCombo() {
+    public String getCombo() {
         return combo;
     }
 

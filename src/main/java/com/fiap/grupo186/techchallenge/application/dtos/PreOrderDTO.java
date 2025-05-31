@@ -2,7 +2,6 @@ package com.fiap.grupo186.techchallenge.application.dtos;
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Item;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
-import com.fiap.grupo186.techchallenge.domains.kitchen.models.TypeCombo;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -12,8 +11,8 @@ import java.util.List;
 import java.util.UUID;
 
 public record PreOrderDTO(
-    @NotNull(message = "Order type is required")
-    TypeCombo combo,
+    @NotNull(message = "Combo type is required")
+    String comboType,
     @NotNull(message = "Price is required")
     @DecimalMin(value = "1.0", message = "Price must be greater than or equal to 1")
     BigDecimal price,
@@ -26,7 +25,7 @@ public record PreOrderDTO(
 ) {
     public Order makeOrderWithItems() {
         var order = new Order(
-            this.combo,
+            this.comboType,
             this.price,
             this.customerId,
             this.customerName

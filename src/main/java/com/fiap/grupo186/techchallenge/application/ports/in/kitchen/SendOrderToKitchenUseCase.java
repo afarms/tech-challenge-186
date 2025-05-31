@@ -1,4 +1,4 @@
-package com.fiap.grupo186.techchallenge.application.ports.in;
+package com.fiap.grupo186.techchallenge.application.ports.in.kitchen;
 
 import java.util.UUID;
 
