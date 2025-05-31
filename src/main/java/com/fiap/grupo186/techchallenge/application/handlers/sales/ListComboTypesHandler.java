@@ -2,7 +2,7 @@ package com.fiap.grupo186.techchallenge.application.handlers.sales;
 
 import com.fiap.grupo186.techchallenge.application.ports.out.ComboTypeRepositoryPort;
 import com.fiap.grupo186.techchallenge.application.ports.in.salles.ListComboTypesUseCase;
-import com.fiap.grupo186.techchallenge.domains.sales.models.ComboType;
+import com.fiap.grupo186.techchallenge.domains.sales.ComboType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

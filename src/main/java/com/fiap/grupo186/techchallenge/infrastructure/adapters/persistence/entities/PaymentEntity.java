@@ -1,4 +1,4 @@
-package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen;
+package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
