@@ -1,7 +1,6 @@
 package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities;
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.OrderStatus;
-import com.fiap.grupo186.techchallenge.domains.kitchen.models.TypeCombo;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,8 +22,8 @@ public class QueueOrderEntity {
     private OrderEntity orderEntity;
     @Column(name = "order_status")
     private OrderStatus orderStatus;
-    @Column(name = "order_combo", precision = 10, scale = 2)
-    private TypeCombo orderCombo;
+    @Column(name = "order_combo")
+    private String orderCombo;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "removed_at")
@@ -36,7 +35,7 @@ public class QueueOrderEntity {
     public QueueOrderEntity(
         OrderEntity orderEntity,
         OrderStatus orderStatus,
-        TypeCombo orderCombo
+        String orderCombo
     ) {
         this.id = UUID.randomUUID();
         this.orderEntity = orderEntity;
@@ -66,11 +65,11 @@ public class QueueOrderEntity {
         this.orderStatus = orderStatus;
     }
 
-    public TypeCombo getOrderCombo() {
+    public String getOrderCombo() {
         return orderCombo;
     }
 
-    public void setOrderCombo(TypeCombo orderCombo) {
+    public void setOrderCombo(String orderCombo) {
         this.orderCombo = orderCombo;
     }
 

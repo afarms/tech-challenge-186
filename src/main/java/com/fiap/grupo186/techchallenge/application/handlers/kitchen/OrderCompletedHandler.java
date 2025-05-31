@@ -1,6 +1,6 @@
-package com.fiap.grupo186.techchallenge.application.handlers;
+package com.fiap.grupo186.techchallenge.application.handlers.kitchen;
 
-import com.fiap.grupo186.techchallenge.application.ports.in.OrderCompletedUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.OrderCompletedUseCase;
 import com.fiap.grupo186.techchallenge.application.ports.out.CustomerNotification;
 import com.fiap.grupo186.techchallenge.application.ports.out.OrderRepositoryPort;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
