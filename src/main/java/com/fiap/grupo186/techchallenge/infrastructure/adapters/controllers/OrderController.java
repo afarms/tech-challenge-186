@@ -2,13 +2,13 @@ package com.fiap.grupo186.techchallenge.infrastructure.adapters.controllers;
 
 import com.fiap.grupo186.techchallenge.application.dtos.OrdersIdsDTO;
 import com.fiap.grupo186.techchallenge.application.dtos.PaymentOrderDTO;
-import com.fiap.grupo186.techchallenge.application.ports.in.CancelOrderUseCase;
-import com.fiap.grupo186.techchallenge.application.ports.in.CreatOrderUseCase;
-import com.fiap.grupo186.techchallenge.application.ports.in.ConfirmOrderPaymentUseCase;
-import com.fiap.grupo186.techchallenge.application.ports.in.OrderCompletedUseCase;
-import com.fiap.grupo186.techchallenge.application.ports.in.OrderReadyUseCase;
-import com.fiap.grupo186.techchallenge.application.ports.in.SendOrderToKitchenUseCase;
-import com.fiap.grupo186.techchallenge.application.ports.in.SubmitOrdersForPreparationUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.CancelOrderUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.CreatOrderUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.ConfirmOrderPaymentUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.OrderCompletedUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.OrderReadyUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.SendOrderToKitchenUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.SubmitOrdersForPreparationUseCase;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.application.dtos.PreOrderDTO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.UUID;
 
 import static org.springframework.http.HttpStatus.CREATED;

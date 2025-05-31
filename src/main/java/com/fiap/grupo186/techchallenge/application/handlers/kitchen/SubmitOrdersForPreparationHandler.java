@@ -1,7 +1,7 @@
-package com.fiap.grupo186.techchallenge.application.handlers;
+package com.fiap.grupo186.techchallenge.application.handlers.kitchen;
 
 import com.fiap.grupo186.techchallenge.application.dtos.OrdersIdsDTO;
-import com.fiap.grupo186.techchallenge.application.ports.in.SubmitOrdersForPreparationUseCase;
+import com.fiap.grupo186.techchallenge.application.ports.in.kitchen.SubmitOrdersForPreparationUseCase;
 import com.fiap.grupo186.techchallenge.application.ports.out.OrderQueueRepositoryPort;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.OrderStatus;

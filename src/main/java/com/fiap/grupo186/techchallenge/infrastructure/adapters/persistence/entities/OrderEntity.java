@@ -1,7 +1,6 @@
 package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities;
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.OrderStatus;
-import com.fiap.grupo186.techchallenge.domains.kitchen.models.TypeCombo;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,8 +25,7 @@ public class OrderEntity {
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
-    @Enumerated(EnumType.STRING)
-    private TypeCombo combo;
+    private String combo;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "completed_at")
@@ -47,7 +45,7 @@ public class OrderEntity {
         UUID id,
         BigDecimal price,
         OrderStatus status,
-        TypeCombo combo,
+        String combo,
         LocalDateTime createdAt,
         LocalDateTime completedAt,
         List<ItemEntity> itemList,
@@ -95,11 +93,11 @@ public class OrderEntity {
         this.status = status;
     }
 
-    public TypeCombo combo() {
+    public String combo() {
         return combo;
     }
 
-    public void setCombo(TypeCombo combo) {
+    public void setCombo(String combo) {
         this.combo = combo;
     }
 
