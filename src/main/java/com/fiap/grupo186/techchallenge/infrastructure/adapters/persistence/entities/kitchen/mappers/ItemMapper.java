@@ -1,8 +1,8 @@
-package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.mappers;
+package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen.mappers;
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Item;
-import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.ItemEntity;
-import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.OrderEntity;
+import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen.ItemEntity;
+import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen.OrderEntity;
 
 public class ItemMapper {
     public static ItemEntity toEntity(Item item, OrderEntity orderEntity) {

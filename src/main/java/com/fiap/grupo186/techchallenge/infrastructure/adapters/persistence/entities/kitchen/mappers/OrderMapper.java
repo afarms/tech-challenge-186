@@ -1,8 +1,8 @@
-package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.mappers;
+package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen.mappers;
 
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
-import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.OrderEntity;
-import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.QueueOrderEntity;
+import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen.OrderEntity;
+import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen.QueueOrderEntity;
 
 public class OrderMapper {
     public static OrderEntity toEntity(Order order) {

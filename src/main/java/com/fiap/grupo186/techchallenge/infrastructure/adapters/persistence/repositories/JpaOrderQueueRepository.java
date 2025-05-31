@@ -2,11 +2,10 @@ package com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.repo
 
 import com.fiap.grupo186.techchallenge.application.ports.out.OrderQueueRepositoryPort;
 import com.fiap.grupo186.techchallenge.domains.kitchen.models.Order;
-import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.mappers.OrderMapper;
+import com.fiap.grupo186.techchallenge.infrastructure.adapters.persistence.entities.kitchen.mappers.OrderMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.UUID;
 
 @Component
 public class JpaOrderQueueRepository implements OrderQueueRepositoryPort {

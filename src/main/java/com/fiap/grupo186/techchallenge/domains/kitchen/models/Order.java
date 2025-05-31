@@ -10,14 +10,14 @@ import java.util.UUID;
 
 public class Order {
     private final UUID id;
-    private BigDecimal price;
+    private final BigDecimal price;
     private OrderStatus status;
-    private String combo;
-    private LocalDateTime createdAt;
+    private final String combo;
+    private final LocalDateTime createdAt;
     private LocalDateTime completedAt = null;
 
     private LocalDateTime paidAt = null;
-    private List<Item> itemList = new ArrayList<>();
+    private final List<Item> itemList = new ArrayList<>();
 
     private final UUID customerId;
     private final String customerName;
